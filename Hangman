@@ -1,0 +1,66 @@
+import sys
+import os
+import subprocess as sp
+from getpass import getpass
+from time import sleep
+entered = []
+clap = []
+realword = getpass("Enter a word you would like someone to guess from")
+
+hint = input("Write a hint.\nNote: This is not the word and can be seen by the people guessing the word. >>>")
+print("Please wait while we load the game...")
+
+fling = realword.upper()
+realword = realword.upper()
+sleep(5)
+sp.call('cls' ,shell = True)
+b = len(realword)
+l = len(clap)
+l = l + 1
+y = len(realword)
+y = y + 3
+t = 1
+while t <= y:
+    
+    print(str(t) + " of " + str(y) + " tries.")
+    print("Hint: " + hint + "...")
+    enter = input("Can you guess a letter in the word >>>")
+    enter = enter.upper()
+    if enter in realword:
+        entered.append(enter)
+        
+    else:
+        print("Wrong answer!")
+    for g in realword:
+        if g in entered:
+            print(g + "\t")
+            clap.append(g)
+           
+        else:
+            print("------")
+    l = len(clap)
+    while b == l:
+        print("Congratulations!!!\nYou have figured it all out!!!")
+        sleep(10)
+        sys.exit()
+    del clap [:]   
+    
+    t += 1
+sp.call('cls' ,shell = True)
+print("Sorry you could not figure it out within the number of tries...\nThe word was " + fling)
+print("        ") 
+print("      o o o o o  ")
+print("     o         o ")
+print("    o           o")
+print("    o   o     o o")
+print("    o           o")
+print("    o           o")
+print("    o     v     o")
+print("    o           o")
+print("    o           o")
+print("    o   ______  o")
+print("    o  (      ) o")
+print("     o         o")
+print("      o o o o o  ")
+sleep(10)
+    
